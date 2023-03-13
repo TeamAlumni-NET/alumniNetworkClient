@@ -8,7 +8,7 @@ export const authenticationSlice = createSlice({
   },
   reducers: {
     logout: (state, action) => {
-      keycloak.logout()
+      //keycloak.logout()
       state.username = "",
       localStorage.clear()
     },

@@ -1,8 +1,20 @@
+import { Card, CardContent, Typography, Button } from "@mui/material"
 
 const GroupTopicList = (stringList) => {
   return (
     <>
-      {stringList.stringList.title}
+      <div>
+        <Typography variant="h2">
+          {stringList.stringList.title}
+        </Typography> 
+        <Button>{stringList.stringList.createNewGroup}</Button>
+      </div>
+      <Card className="cardSize">
+        <CardContent>
+          <Typography>jee</Typography>
+        </CardContent>
+      </Card>
+      
       {stringList.stringList.create}
       {stringList.stringList.member}
       {stringList.stringList.privateGroup}

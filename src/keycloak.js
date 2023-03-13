@@ -1,7 +1,11 @@
 import Keycloak from "keycloak-js"
 
 // NB! Leave the / or the relative path will use the Router path
-const keycloak = new Keycloak("/keycloak.json")
+const keycloak = new Keycloak({
+  url: "https://lemur-3.cloud-iam.com/auth/",
+  realm: "alumni-network-auth",
+  clientId: "alumni-network-client"
+})
 
 /**
  * Initialize Keycloak and silently checking for an existing login.

@@ -16,6 +16,7 @@ function App() {
   const {username} = useSelector((state) => state.username)
   const { keycloak, initialized } = useKeycloak()
 
+
   useEffect(() => {
     if (keycloak.authenticated && !localStorage.getItem("token")) {
       localStorage.setItem("token", keycloak.token)
@@ -36,22 +37,22 @@ function App() {
     strings.setLanguage(lang)
     localStorage.setItem("language", lang)
   }
-
+  console.log(keycloak.authenticated);
   return (
-    <BrowserRouter>
+    <>
+      <NabBar 
+        keycloak = {keycloak}
+        language = {language}
+        changeLanguageHandler = {changeLanguageHandler}
+      />
       <div className="App">
-        <NabBar 
-          keycloak = {keycloak}
-          language = {language}
-          changeLanguageHandler = {changeLanguageHandler}
-        />
         <Routes>
           <Route path='/' element={<Profile/>} />
           <Route path='/groupList' element={<GroupList/>} />
           <Route path='/topicList' element={<TopicList/>} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </>
   )
 }
 

@@ -5,17 +5,24 @@ import store from "./store/store"
 import { Provider } from "react-redux"
 import { initialize } from './keycloak'
 import keycloak from "./keycloak"
-import { ReactKeycloakProvider } from '@react-keycloak/web' 
+import { ReactKeycloakProvider } from '@react-keycloak/web'
+import { BrowserRouter} from 'react-router-dom'
+import "./index.css"
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
-
-try {
+try { 
   initialize()
+} catch (error) {
+  console.log(error);
+}
+try {
   root.render(
     <ReactKeycloakProvider authClient={keycloak}>
       <React.StrictMode>
         <Provider store={store}>
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
         </Provider>
       </React.StrictMode>
     </ReactKeycloakProvider>

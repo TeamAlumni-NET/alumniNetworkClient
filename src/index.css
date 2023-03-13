@@ -1,0 +1,14 @@
+html {
+  background-color: rgb(76, 0, 0);
+}
+.App {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardSize {
+  width: 80%;
+}

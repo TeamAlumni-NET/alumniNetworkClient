@@ -12,6 +12,7 @@ const NabBar = ({keycloak, language, changeLanguageHandler}) => {
   const logoutHandler = () => {
     dispatch(logout())
   }
+  //keycloak.login()
 
   return (
     <div>
@@ -21,7 +22,7 @@ const NabBar = ({keycloak, language, changeLanguageHandler}) => {
       </Select>
       <section className="actions">
         {!username ? 
-          <Button onClick={() => keycloak.login()}>{strings.navbar.login}</Button>
+          <Button onClick={() => {}}>{strings.navbar.login}</Button>
           : <NavLink to={"/"}>
             <Button onClick={() => logoutHandler()}>{strings.navbar.logout}</Button>
           </NavLink>}
